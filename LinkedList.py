@@ -11,7 +11,7 @@ class LinkedList:
     self.tail = new_node    ## tail points to new_node
     self.length = 1  ## length
 
-  def print_list(self):
+  def print_list(self): ## Printing the list
     temp = self.head
     while temp is not None:
       print(temp.value)
@@ -34,6 +34,8 @@ class LinkedList:
           self.tail.next = new_node
           self.tail = new_node
         self.length += 1
+
+        
 
   def append_at_beginning(self,value): ##Insert node at beginning
     new_node = Node(value)
@@ -97,37 +99,58 @@ class LinkedList:
     self.head = next_node
     current_node.next = None
     self.length -= 1
+
+  def get(self, index):  ##get the element
+    current_node = self.head
+    count = 0
+    if self.length == 0 or index >= self.length:
+      return None
+    else:
+      while(current_node.next is not None):
+        if count == index:
+          return current_node.value
+        count += 1
+        current_node = current_node.next
+      
       
 
       
            
-         
+        
 
 
 
-my_linked_list = LinkedList(1) ##Created a linkedList
-# print(my_linked_list.head.value)  ## printing the value of the linkedList
+my_linked_list = LinkedList(10) ##Created a linkedList
+# print(my_linked_list.head.value)## printing the value of the linkedList
+
+
+
+
 my_linked_list.append(3)
 my_linked_list.append(6)
 my_linked_list.append(8)
 
 my_linked_list.print_list()
 
-print("Length of the linkedList", my_linked_list.length)
+print("The node at 2: ",my_linked_list.get(2))
 
-my_linked_list.pop()
+# my_linked_list.print_list()
+
+# print("Length of the linkedList", my_linked_list.length)
+
+# my_linked_list.pop()
 
 
-print("Length of the linkedList", my_linked_list.length)
+# print("Length of the linkedList", my_linked_list.length)
 
-my_linked_list.append_at_beginning(5)
+# my_linked_list.append_at_beginning(5)
 
-my_linked_list.print_list()
+# my_linked_list.print_list()
 
-print("Length of the linkedList", my_linked_list.length)
+# print("Length of the linkedList", my_linked_list.length)
 
-my_linked_list.pre_pop()
+# my_linked_list.pre_pop()
 
-my_linked_list.insertAtGivenPosition(2,9)
+# my_linked_list.insertAtGivenPosition(2,9)
 
-my_linked_list.print_list()
+# my_linked_list.print_list()
